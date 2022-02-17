@@ -1,11 +1,11 @@
-public class Assignment3{
+
 	
-	abstract class Shape{
-		abstract void calculateArea();
-		abstract void display();
+	interface Shape{
+		void calculateArea();
+		void display();
 	}	
 
-	class Rectangle extends Shape{
+	class Rectangle implements Shape{
 		int length;
 		int width;
 		int area;
@@ -16,17 +16,17 @@ public class Assignment3{
 		}
 
 		@Override
-		void calculateArea(){
+		public void calculateArea(){
 			area = length*width;	
 		}
 
 		@Override
-		void display(){
+		public void display(){
 			System.out.println("Area of this Rectangle is " + area);
 		}
 	}
 
-	class Circle extends Shape{
+	class Circle implements Shape{
 		int radius;
 		double area;
 		
@@ -35,34 +35,36 @@ public class Assignment3{
 		}
 
 		@Override
-		void calculateArea(){
+		public void calculateArea(){
 			area = 3.14*radius*radius;
 		}
 
 		@Override
-		void display(){
+		public void display(){
 			System.out.println("Area of this circle is " + area);
 		}
 
 	}
 	
-	class Triangle extends Shape{
+
+
+	class Triangle implements Shape{
 		int base;
 		int height;
 		double area;
 
-		Triangle(int base, int height){
-			this.base = base;
-			this.height = height;
+		Triangle(int b, int h){
+			base = b;
+			height = h;
 		}
 
 		@Override
-		void calculateArea(){
+		public void calculateArea(){
 			area = .5*base*height;
 		}
 
 		@Override
-		void display(){
+		public void display(){
 			System.out.println("The area of this triangle is " + area);
 		}
 
@@ -70,15 +72,21 @@ public class Assignment3{
 	}
 	
 	
-	Triangle tri = new Triangle(4,6);
-	Circle cir = new Circle(3);
-	Rectangle rec = new Rectangle(2,4);
+	public class Assignment3{
+	
+		public static void main(String[] args){
+			Shape rec = new Rectangle(2,4);
+			rec.calculateArea();
+			rec.display();
 
-	public void main(String[] args){
-		tri.display();
-		cir.display();
-		rec.display();
-	}
+			Shape cir = new Circle(3);
+			cir.calculateArea();
+			cir.display();
+
+			Shape tri = new Triangle(4,6);
+			tri.calculateArea();
+			tri.display();
+		}
 
 
 
