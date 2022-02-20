@@ -9,6 +9,7 @@ public class Assignment1{
 		ArrayList<Integer> nums = new ArrayList<Integer>();
 		int sum = 0;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	if(args[0] == null){	
 		try{
 			while(true){
 				System.out.println("Please enter an integer number(or enter EXIT to add the numbers entered so far): ");
@@ -29,6 +30,13 @@ public class Assignment1{
 			System.out.println(e);
 		}		
 	
+	}else{ 
+		for(String i: args)
+		{
+			sum+= Integer.parseInt(i);
+		}
+		System.out.println("The sum of the numbers enetered is: " + sum);
+	}	
 
 
 	}
